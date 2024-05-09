@@ -34,7 +34,11 @@ const EmployeeBranchList = () => {
               <td>
                 {item.firstName} {item.lastName}
               </td>
-              <td>{item.branches.branchName}</td>
+              <td>
+                {item.branches.length > 0
+                  ? item.branches[0].branchName
+                  : 'No Branch'}
+              </td>
               <td>{item.emailId}</td>
             </tr>
           ))}
