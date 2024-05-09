@@ -20,7 +20,9 @@ const EmployeeList = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8081/api/v1/employees/${id}`)
+      .delete(
+        `https://empbackend-production.up.railway.app/api/v1/employees/${id}`
+      )
       .then(() => {
         // Employee deleted successfully, update the employees list
         fetchEmployees()

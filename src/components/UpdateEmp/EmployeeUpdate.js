@@ -32,7 +32,10 @@ const EmployeeUpdate = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .put(`http://localhost:8081/api/v1/employees/${id}`, employee)
+      .put(
+        `https://empbackend-production.up.railway.app/api/v1/employees/${id}`,
+        employee
+      )
       .then(() => {
         history('/')
       })
