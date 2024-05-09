@@ -1,31 +1,52 @@
 /* Navbar.css */
 
 nav {
-  background-color: #333; /* Background color */
-  color: #fff; /* Text color */
-  padding: 10px 0; /* Padding for content */
+  background-color: #333;
+  /* Background color */
+  color: #fff;
+  /* Text color */
+  padding: 10px 0;
+  /* Padding for content */
 }
 
 ul {
-  list-style-type: none; /* Remove bullets from list */
-  margin: 0;
-  padding: 0;
+  list-style-type: none;
+  /* Remove bullets from list */
+  margin: 10px;
+  padding: 2px;
 }
 
+
+
 li {
-  display: inline; /* Display list items inline */
-  margin-right: 20px; /* Spacing between menu items */
+  display: inline;
+  /* Display list items inline */
+  margin-right: 20px;
+  padding: 5px;
+  /* Spacing between menu items */
+  border: 3px solid white;
+  border-radius: 15px;
+  /* Add border with initial transparent color */
+}
+
+li:hover {
+  border-color: #fff;
+  /* Change border color on hover */
 }
 
 /* Style the links */
 a {
-  text-decoration: none; /* Remove underlines from links */
-  color: #fff; /* Link color */
+  text-decoration: none;
+  /* Remove underlines from links */
+  color: #fff;
+  /* Link color */
   font-weight: bold;
-  transition: color 0.3s; /* Smooth color transition on hover */
+  transition: color 0.3s;
+  /* Smooth color transition on hover */
 }
 
 /* Change link color on hover */
 a:hover {
-  color: #ff4500; /* Hover color */
+  color: #ff4500;
+  /* Hover color */
 }

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import api from '../API/api' // Import the API configuration
 import './CreateEmployee.css' // Import your CSS file for styling

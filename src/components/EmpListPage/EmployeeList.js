@@ -11,6 +11,21 @@ const EmployeeList = () => {
   useEffect(() => {
     fetchEmployees()
   }, [])
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen)
+  }
+  const linkStyle = {
+    textDecoration: 'none', // Remove underlines from links
+    color: 'blue', // Link color
+    fontWeight: 'bold',
+    transition: 'color 0.3s', // Smooth color transition on hover
+    marginRight: '20px', // Corrected property name
+    padding: '5px',
+    border: '3px solid red',
+    borderRadius: '15px', // Corrected property name
+  }
 
   const fetchEmployees = () => {
     api.get('/employees').then((response) => {
@@ -34,7 +49,10 @@ const EmployeeList = () => {
 
   return (
     <div>
-      <h2>Employee List</h2>
+      <h2>Employee List </h2>
+      <Link to='/create' style={linkStyle} onClick={toggleNavbar}>
+        Create Employee
+      </Link>
       <table className='employee-table'>
         <thead>
           <tr>
