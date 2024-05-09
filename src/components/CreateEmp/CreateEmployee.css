@@ -1,0 +1,50 @@
+/* CreateEmployee.css */
+
+/* Center the form vertically and horizontally */
+.create-employee-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed for your layout */
+  }
+  
+  /* Style for the form itself */
+  .create-employee-form {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  /* Style for form labels */
+  .create-employee-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  /* Style for form input fields */
+  .create-employee-form input[type="text"],
+  .create-employee-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  /* Style for the submit button */
+  .create-employee-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .create-employee-form button:hover {
+    background-color: #0056b3;
+  }
+  

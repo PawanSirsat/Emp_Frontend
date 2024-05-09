@@ -1,0 +1,42 @@
+/* EmployeeList.css */
+
+/* Style for the employee list container */
+.employee-list-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Style for the table */
+  .employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Style for table headers */
+  .employee-table th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style for table rows */
+  .employee-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  /* Style for edit and delete buttons */
+  .employee-table button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .employee-table button:hover {
+    background-color: #1e7e34;
+  }
+  
