@@ -9,18 +9,18 @@ const EmployeeBranchList = () => {
 
   useEffect(() => {
     // Make an API request to fetch the data
-    api.get('/branches').then((response) => {
+    api.get('/employees').then((response) => {
       setData(response.data)
     })
   }, []) // Empty dependency array ensures the effect runs once
 
+  console.log(data)
   return (
     <div>
       <h2>Employee Branch List</h2>
       <table>
         <thead>
           <tr>
-            <th>Id</th>
             <th>Emp Id</th>
             <th>Employee Name</th>
             <th>Branch Name</th>
@@ -31,12 +31,11 @@ const EmployeeBranchList = () => {
           {data.map((item) => (
             <tr key={item.id}>
               <td>{item.id}</td>
-              <td>{item.employee.id}</td>
               <td>
-                {item.employee.firstName} {item.employee.lastName}
+                {item.firstName} {item.lastName}
               </td>
-              <td>{item.branchName}</td>
-              <td>{item.employee.emailId}</td>
+              <td>{item.branches.branchName}</td>
+              <td>{item.emailId}</td>
             </tr>
           ))}
         </tbody>
