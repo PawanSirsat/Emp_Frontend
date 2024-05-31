@@ -24,14 +24,14 @@ const Navbar = () => {
       <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
         <li>
           <Link to='/' style={linkStyle} onClick={toggleNavbar}>
-            Home
+            DashBoard
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to='/branch' style={linkStyle} onClick={toggleNavbar}>
             Branch List
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   )

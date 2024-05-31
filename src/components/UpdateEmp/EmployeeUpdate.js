@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
-import api from '../API/api' // Import the API configuration
-
 import './EmployeeUpdate.css' // Import your CSS file for styling
 
 const EmployeeUpdate = () => {
@@ -16,9 +14,26 @@ const EmployeeUpdate = () => {
   })
 
   useEffect(() => {
-    api.get(`/employees/${id}`).then((response) => {
-      setEmployee(response.data)
-    })
+    const fetchEmployee = async () => {
+      try {
+        const token = localStorage.getItem('jwtToken') // Get the JWT token from localStorage
+
+        const response = await axios.get(
+          `http://localhost:8081/api/v1/employees/${id}`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`, // Add the JWT token to the Authorization header
+            },
+          }
+        )
+        setEmployee(response.data)
+      } catch (error) {
+        console.error('Error fetching employee data:', error)
+      }
+    }
+
+    fetchEmployee()
   }, [id])
 
   const handleInputChange = (e) => {
@@ -29,16 +44,29 @@ const EmployeeUpdate = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    axios
-      .put(
-        `https://empbackend-production.up.railway.app/api/v1/employees/${id}`,
-        employee
-      )
-      .then(() => {
+    try {
+      const token = localStorage.getItem('jwtToken') // Get the JWT token from localStorage
+      if (token) {
+        await axios.put(
+          `http://localhost:8081/api/v1/employees/${id}`,
+          employee,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`, // Add the JWT token to the Authorization header
+            },
+          }
+        )
         history('/')
-      })
+      } else {
+        console.log('No token found, redirecting to login page')
+        history('/login') // Redirect to the login page if no token is found
+      }
+    } catch (error) {
+      console.error('Error updating employee:', error)
+    }
   }
 
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import api from '../API/api' // Import the API configuration
+import axios from 'axios' // Import Axios for HTTP requests
 import './CreateEmployee.css' // Import your CSS file for styling
 
 const CreateEmployee = () => {
@@ -22,17 +22,29 @@ const CreateEmployee = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    api
-      .post('/employees', employee)
-      .then(() => {
-        setShowPopup(true) // Show popup on successful creation
-        console.log('Employee created successfully') // Log success message to console
-        // Optionally, you can navigate to another page after successful creation
-        history('/')
-      })
-      .catch((error) => {
-        console.error('Error creating employee:', error) // Log error to console
-      })
+    const token = localStorage.getItem('jwtToken')
+    if (token) {
+      console.log(token)
+
+      axios
+        .post('http://localhost:8081/api/v1/employees', employee, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json', // Specify content type
+          },
+        })
+        .then(() => {
+          setShowPopup(true) // Show popup on successful creation
+          console.log('Employee created successfully') // Log success message to console
+          // Optionally, you can navigate to another page after successful creation
+          history('/')
+        })
+        .catch((error) => {
+          console.error('Error creating employee:', error) // Log error to console
+        })
+    } else {
+      console.error('JWT token not found') // Log error if token is not found in localStorage
+    }
   }
 
   return (

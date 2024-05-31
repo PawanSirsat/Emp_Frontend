@@ -23,9 +23,13 @@ const EmployeeBranchList = () => {
   }
   useEffect(() => {
     // Make an API request to fetch the data
-    api.get('/employees').then((response) => {
-      setData(response.data)
-    })
+    try {
+      api.get('/employees').then((response) => {
+        setData(response.data)
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }, []) // Empty dependency array ensures the effect runs once
 
   console.log(data)
